@@ -24,7 +24,8 @@ app.use((req, res, next) => {
 // Maintenance page
 // app.use((req, res, next) => {
 //   res.render('maintenance.hbs', {
-//     pageTitle: 'Maintenance Page'
+//     pageTitle: 'Maintenance Page',
+//     welcomeMessage: 'Unavailable due to Maintenance.'
 //   });
 // });
 
@@ -51,6 +52,13 @@ app.get('/about', (req, res) => {
   });
 });
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
+    welcomeMessage: 'Welcome to the Portfolio Page'
+  });
+});
+
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unknown request'
@@ -58,5 +66,5 @@ app.get('/bad', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is running on port 3000');
+  console.log(`Server is running on port ${port}`);
 });
